@@ -3,9 +3,9 @@ steps <- data.frame(tapply(activity$steps,activity$date, sum))
 steps <- cbind(as.Date(row.names(steps)),steps)
 colnames(steps) = c("date","sum")
 summary(steps$sum)[c(3,4)]
-#png("rep_research_1_1.png",width = 450, height = 450)
-#plot(steps$date,steps$sum,type = "h",xlab = "date",ylab = "total steps")
-#dev.off()
+png("rep_research_1_1.png",width = 450, height = 450)
+plot(steps$date,steps$sum,type = "h",xlab = "date",ylab = "total steps")
+dev.off()
 
 series <- subset(activity, !is.na(activity$steps))
 series <- data.frame(tapply(series$steps, series$interval, mean))
@@ -29,10 +29,10 @@ for(i in 1:length(Filled$steps)){
 steps2 <- data.frame(tapply(Filled$steps,Filled$date, sum))
 steps2 <- cbind(as.Date(row.names(steps2)),steps2)
 colnames(steps2) = c("date","sum")
-#png("rep_research_1_3.png",width = 450, height = 450)
+png("rep_research_1_3.png",width = 450, height = 450)
 summary(Filled$sum)[c(3,4)]
 plot(steps2$date,steps2$sum,type = "h",xlab = "date",ylab = "total steps" )
-#dev.off()
+dev.off()
 
 weekDay <- c("Monday","Tuesday","Wednesday","Thursday","Friday")
 weekEnd <- c("Saturday","Sunday")
